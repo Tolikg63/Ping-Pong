@@ -98,21 +98,31 @@ for (let i = grid; i < canvas.height - grid; i += grid * 2) {
 
 document.addEventListener('keydown', function(e) {
 
-if (e.which === 38) {
-  rightPlatform.dy = -platformSpeed;
-  leftPlatform.dy = -platformSpeed;
-} else if (e.which === 40) {
-  rightPlatform.dy = platformSpeed;
-  leftPlatform.dy = platformSpeed;
-}
-});
-document.addEventListener('keyup', function(e) {
-if (e.which === 38 || e.which === 40) {
-  rightPlatform.dy = 0;
-  leftPlatform.dy = 0;
-}
+  if (e.which === 38) {
+    rightPlatform.dy = -platformSpeed;
+  } else if (e.which === 40) {
+    rightPlatform.dy = platformSpeed;
+  }
 
-  });
+  if (e.which === 87) {
+    leftPlatform.dy = -platformSpeed;
+  } else if (e.which === 83) {
+    leftPlatform.dy = platformSpeed;
+  }
+});
+  document.addEventListener('keyup', function(e) {
+    if (e.which === 38 || e.which === 40) {
+      rightPlatform.dy = 0;
+      
     }
+    if (e.which === 83 || e.which === 87) {
+
+      // останавливаем левую платформу
+  
+      leftPlatform.dy = 0;
+  
+    }
+  });
+}
 
 requestAnimationFrame(loop);

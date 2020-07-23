@@ -7,47 +7,47 @@ let platformSpeed = 6;
 let ballSpeed = 5;
 
 const leftPlatform = {
-x: grid,
-y: canvas.height / 2 - platformHeight / 2,
-width: grid / 2,
-height: platformHeight,
-dy: 0
+  x: grid,
+  y: canvas.height / 2 - platformHeight / 2,
+  width: grid / 2,
+  height: platformHeight,
+  dy: 0
 };
 
 const rightPlatform = {
-x: canvas.width - grid * 2,
-y: canvas.height / 2 - platformHeight / 2,
-width: grid / 2,
-height: platformHeight,
-dy: 0
+  x: canvas.width - grid * 2,
+  y: canvas.height / 2 - platformHeight / 2,
+  width: grid / 2,
+  height: platformHeight,
+  dy: 0
 };
 
 const ball = {
-x: canvas.width / 2,
-y: canvas.height / 2,
-width: grid,
-height: grid,
-resetting: false,
-dx: ballSpeed,
-dy: -ballSpeed
+  x: canvas.width / 2,
+  y: canvas.height / 2,
+  width: grid,
+  height: grid,
+  resetting: false,
+  dx: ballSpeed,
+  dy: -ballSpeed
 };
 
 function collides(obj1, obj2) {
-return obj1.x < obj2.x + obj2.width &&
-obj1.x + obj1.width > obj2.x &&
-obj1.y < obj2.y + obj2.height &&
-obj1.y + obj1.height > obj2.y;
+  return obj1.x < obj2.x + obj2.width &&
+  obj1.x + obj1.width > obj2.x &&
+  obj1.y < obj2.y + obj2.height &&
+  obj1.y + obj1.height > obj2.y;
 }
 
 function loop() {
-requestAnimationFrame(loop);
-context.clearRect(0,0,canvas.width,canvas.height);
-leftPlatform.y += leftPlatform.dy;
-rightPlatform.y += rightPlatform.dy;
-if (leftPlatform.y < grid) {
-  leftPlatform.y = grid;
-} else if (leftPlatform.y > maxPlatformY) {
-  leftPlatform.y = maxPlatformY;
+  requestAnimationFrame(loop);
+  context.clearRect(0,0,canvas.width,canvas.height);
+  leftPlatform.y += leftPlatform.dy;
+  rightPlatform.y += rightPlatform.dy;
+  if (leftPlatform.y < grid) {
+    leftPlatform.y = grid;
+  } else if (leftPlatform.y > maxPlatformY) {
+    leftPlatform.y = maxPlatformY;
 }
 
 if (rightPlatform.y < grid) {
@@ -111,6 +111,7 @@ if (e.which === 38 || e.which === 40) {
   rightPlatform.dy = 0;
   leftPlatform.dy = 0;
 }
+
   });
     }
 
